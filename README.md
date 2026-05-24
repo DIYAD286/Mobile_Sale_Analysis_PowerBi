@@ -1,4 +1,4 @@
-# 📱 Mobile Sales Analysis Dashboard — Power BI
+# 📱 Mobile Sales Analysis Dashboard using Power BI
 
 An end-to-end data analytics project built in Power BI analyzing mobile phone sales across Indian cities. The raw dataset was cleaned using **Power Query** and enriched with custom **DAX measures** to build an interactive dashboard for business insights.
 
