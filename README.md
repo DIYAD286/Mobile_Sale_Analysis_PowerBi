@@ -135,6 +135,6 @@ TOPN(
 ## **Diya**
 **B.E. Electronics and Computer Engineering — Thapar Institute of Engineering and Technology**
 - 📧 ddiyadawra28@gmail.com
-- 🔗 [LinkedIn](https://linkedin.com)
-- 🐙 [GitHub](https://github.com)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/diya-d-30872825b?utm_source=share_via&utm_content=profile&utm_medium=member_ios)
+- 🐙 [GitHub](https://github.com/DIYAD286)
 
