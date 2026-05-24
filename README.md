@@ -132,8 +132,8 @@ TOPN(
 
 ## 👩‍💻 Author
 
-**Diya**
-- B.E. Electronics and Computer Engineering — Thapar Institute of Engineering and Technology
+## **Diya**
+**B.E. Electronics and Computer Engineering — Thapar Institute of Engineering and Technology**
 - 📧 ddiyadawra28@gmail.com
 - 🔗 [LinkedIn](https://linkedin.com)
 - 🐙 [GitHub](https://github.com)
