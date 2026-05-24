@@ -6,10 +6,8 @@ An end-to-end data analytics project built in Power BI analyzing mobile phone sa
 
 ## 📊 Dashboard Preview
 
-> *(Add a screenshot of your Power BI dashboard here)*
-> In Power BI Desktop → File → Export → Export to PDF or take a screenshot and name it `dashboard.png`
+<img width="1242" height="701" alt="Dashboard" src="https://github.com/user-attachments/assets/41c333d5-fdd8-4a3b-a18b-31edee932a01" />
 
-![Dashboard Preview](dashboard.png)
 
 ---
 
@@ -18,9 +16,9 @@ An end-to-end data analytics project built in Power BI analyzing mobile phone sa
 ```
 mobile-sales-analysis/
 │
+├── dashboard.png                    # Dashboard screenshot
 ├── Mobile_Sales_Data_Raw.xlsx       # Original raw dataset
 ├── MobileSalesAnalysis.pbix         # Power BI project file
-├── dashboard.png                    # Dashboard screenshot
 └── README.md                        # Project documentation
 ```
 
@@ -65,28 +63,36 @@ Custom DAX measures created for the dashboard:
 
 ```dax
 -- Total Sales Revenue
-Total Sales = SUMX(mobile_salesdata, mobile_salesdata[Units Sold] * mobile_salesdata[Price Per Unit])
+total_sales = SUMX(Mobile_salesdata,Mobile_salesdata[Units Sold]*Mobile_salesdata[Price Per Unit])
 
 -- Total Transactions
-Transactions = COUNTROWS(mobile_salesdata)
+Transactions = COUNTROWS(Mobile_salesdata)
 
 -- Total Units Sold
-Total Quantity = SUM(mobile_salesdata[Units Sold])
+total Quanity = SUM(Mobile_salesdata[Units Sold])
 
 -- Average Transaction Value
-Average = DIVIDE([Total Sales], [Transactions])
+Average = AVERAGE(Mobile_salesdata[Price Per Unit])
 
+-- Previous Month Sales
+Previous Month Sales = 
+CALCULATE(
+    [total_sales],
+    DATEADD(Calendar[Date], -1, MONTH)
+)
 -- Month-over-Month Growth %
-MOM Growth % = 
-VAR CurrentMonth = [Total Sales]
-VAR PreviousMonth = CALCULATE([Total Sales], DATEADD('Date'[Date], -1, MONTH))
-RETURN DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth)
-
+Monthly Growth(MOM)% = 
+DIVIDE(
+    [total_sales] - [Previous Month Sales],
+    [Previous Month Sales]
+)
 -- Top Brand by Sales
 Top Brand = 
-FIRSTNONBLANK(
-    TOPN(1, VALUES(mobile_salesdata[Brand]), [Total Sales], DESC),
-    1
+TOPN(
+    1,
+    VALUES(Mobile_salesdata[Brand]),
+    [total_sales],
+    DESC
 )
 ```
 
@@ -97,7 +103,7 @@ FIRSTNONBLANK(
 - 💰 **Total Revenue: ₹769M** across 4,000+ transactions
 - 📦 **19K units sold** with an average transaction value of **₹40K**
 - 🏆 **Apple** is the top brand with **₹161.6M** in sales, closely followed by Samsung (₹160M)
-- 💳 **Debit Card** is the most used payment method (26.25%), with fairly even distribution across all 4 methods
+- 💳 **UPI** is the most used payment method (26.25%), with fairly even distribution across all 4 methods
 - ⭐ **311 customers** gave a 5/5 rating — the highest count across all rating levels
 - 📉 Monthly Growth (MOM%) shows fluctuating trends, highlighting seasonal demand patterns
 
@@ -127,7 +133,7 @@ FIRSTNONBLANK(
 ## 👩‍💻 Author
 
 **Diya**
-B.E. Electronics and Computer Engineering — Thapar Institute of Engineering and Technology
+--- B.E. Electronics and Computer Engineering — Thapar Institute of Engineering and Technology
 - 📧 ddiyadawra28@gmail.com
 - 🔗 [LinkedIn](https://linkedin.com)
 - 🐙 [GitHub](https://github.com)
